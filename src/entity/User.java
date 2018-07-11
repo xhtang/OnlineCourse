@@ -24,7 +24,7 @@ public class User {
     }
 
     @Id
-    @Column(name = "id")
+    @Column(name = "userId")
     public int getId() {
         return id;
     }
