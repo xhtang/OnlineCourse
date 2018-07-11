@@ -12,7 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
-
+    <link href="../css/register.css" rel="stylesheet">
 </head>
 <body>
 
@@ -54,8 +54,8 @@
 </footer>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../jquery/jquery-3.3.1.js"></script>
+<script src="../bootstrap/js/bootstrap.js"></script>
 <script src="../js/md5.min.js"></script>
 <script src="../js/register.js"></script>
 

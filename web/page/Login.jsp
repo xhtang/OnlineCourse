@@ -6,6 +6,8 @@
     <!-- Bootstrap core CSS -->
     <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
 
+    <link href="../css/login.css" rel="stylesheet">
+
 </head>
 <body>
 <%@include file="include/header.jsp"%>
@@ -43,8 +45,8 @@
 </footer>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../jquery/jquery-3.3.1.js"></script>
+<script src="../bootstrap/js/bootstrap.js"></script>
 <script src="../js/md5.min.js"></script>
 <script src="../js/login.js"></script>
 

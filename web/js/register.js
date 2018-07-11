@@ -1,6 +1,6 @@
 var code; //在全局 定义验证码
-var str = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u'
-    ,'v','w','x','y','z','0','1','2','3','4','5','6','7','8','9'];
+var str = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u'
+    , 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 var code_pass = false;
 
 /**
@@ -46,9 +46,6 @@ $(document).ready(function () {
             //发送 post 请求
             try {
 
-                // 邮箱的正则表达式
-                var pattern = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})/;
-
                 // 密码的正则表达式
                 var pattern_pass = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{4,}$/;
 
@@ -56,14 +53,12 @@ $(document).ready(function () {
                 var check_password = $("input[name=\"check_password\"]").val();
 
                 var password_test = ((password === check_password) && pattern_pass.test(password));
-                var email_test = pattern.test($("#email").val());
 
-                if (password_test && email_test) {
+                if (password_test) {
                     $.post("../register", // path
 
                         //在这里加密
                         {
-                            'email': $("#email").val(),
                             'username': $("#username").val(),
                             'password': md5($("#password").val())
                         },
@@ -84,16 +79,12 @@ $(document).ready(function () {
                         });
                 }
                 else {
-                    if (email_test) {
-                        if (pattern_pass.test(password)) {
-                            alert("两次密码不相同！！！");
-                        }
-                        else {
-                            alert("密码格式不正确，必须为包含数字和字母的4位或以上的字符串！！！")
-                        }
+
+                    if (pattern_pass.test(password)) {
+                        alert("两次密码不相同！！！");
                     }
                     else {
-                        alert("邮箱格式不正确！！！");
+                        alert("密码格式不正确，必须为包含数字和字母的4位或以上的字符串！！！")
                     }
                 }
 
