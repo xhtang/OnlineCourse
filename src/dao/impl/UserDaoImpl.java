@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -89,7 +90,25 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> getAll() {
-        return null;
+        Connection conn = util.getConnection();
+        //language=MySQL
+        String sql = "SELECT * FROM user";
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        List<User> users = new ArrayList<>();
+        try {
+            pst = conn.prepareStatement(sql);
+            rs =  pst.executeQuery();
+            while (rs.next()) {
+                users.add(buildUser(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            util.close(rs, pst, conn);
+        }
+
+        return users;
     }
 
     @Override
