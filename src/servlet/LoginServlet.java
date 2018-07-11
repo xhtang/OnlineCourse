@@ -1,7 +1,8 @@
 package servlet;
 
-import service.CustomerService;
-import service.impl.CustomerServiceImpl;
+
+import service.UserService;
+import service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +13,7 @@ import java.io.IOException;
 
 @WebServlet(name = "LoginServlet", value = "/login")
 public class LoginServlet extends HttpServlet {
-    private CustomerService customerService = new CustomerServiceImpl();
+    private UserService userService = new UserServiceImpl();
 
     private void doRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String username = request.getParameter("username");
@@ -20,9 +21,9 @@ public class LoginServlet extends HttpServlet {
 
         //String str_url = request.getRequestURI();
 
-        if (customerService.existed(username)) {
-            if (customerService.login(username,password) != null) {
-                request.getSession().setAttribute("user", customerService.login(username,password));
+        if (userService.exist(username)) {
+            if (userService.login(username,password) != null) {
+                request.getSession().setAttribute("user", userService.login(username,password));
 
                 response.getWriter().print("{\"existed\": \"TRUE\",\"password\": \"TRUE\"}");
             }

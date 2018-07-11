@@ -1,8 +1,8 @@
 package servlet;
 
-import entity.Customers;
-import service.CustomerService;
-import service.impl.CustomerServiceImpl;
+import entity.User;
+import service.UserService;
+import service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,15 +13,14 @@ import java.io.IOException;
 
 @WebServlet(name = "RegisterServlet", value = "/register")
 public class RegisterServlet extends HttpServlet {
-    private CustomerService customerService = new CustomerServiceImpl();
+    private UserService userService = new UserServiceImpl();
 
     private void doRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String email = request.getParameter("email");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        Customers customers = customerService.register(email, username, password);
-        if (customers != null) {
-            request.getSession().setAttribute("user", customers);
+        User user = userService.register(username, password);
+        if (user != null) {
+            request.getSession().setAttribute("user", user);
             // json 表达式
             response.getWriter().print("{\"result\": \"OK\"}");
         }
