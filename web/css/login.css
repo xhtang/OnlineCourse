@@ -1,0 +1,60 @@
+a:hover{
+    text-decoration: none;
+}
+
+#login_form {
+    background-color: whitesmoke;
+    margin-top: 0;
+    margin-bottom: 0;
+    border:2px #cccccc;
+    height: 88%;
+}
+
+#login_title {
+    padding-top: 30px;
+    margin-top: 0;
+    margin-left: 33%;
+}
+
+.login_text {
+
+    border-radius: 2px;
+    border: 1px solid #cccccc;
+    margin-top: 3px;
+    margin-left: 33%;
+
+    width: 250px;
+    height: 30px;
+}
+
+#login_remember {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: 33%;
+}
+
+#input_code {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: 33%;
+}
+
+#checkCode {
+    width: 70px;
+    background: #adb8c7;
+}
+
+#login_in {
+    border-radius: 2px;
+    border: 1px #cccccc;
+    background-color: #337ab7;
+    margin-left: 33%;
+    color: whitesmoke;
+    width: 250px;
+    height: 30px;
+}
+
+#login_up {
+    margin-left: 33%;
+    font-size: 10px;
+}
