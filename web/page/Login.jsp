@@ -4,11 +4,7 @@
     <title>Login</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../bootstrap-3.0.0/dist/css/bootstrap.css" rel="stylesheet">
-
-    <link href="../css/top.css" rel="stylesheet">
-
-    <link href="../css/login.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
 
 </head>
 <body>
