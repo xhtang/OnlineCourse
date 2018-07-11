@@ -8,6 +8,10 @@ public class JdbcUtil {
     private final static String USER = "root";
     private final static String PASSWORD = "123456";
 
+    public static void main(String args[]) {
+        new JdbcUtil();
+    }
+
     public JdbcUtil() {
         try {
             Class.forName("com.mysql.jdbc.Driver");

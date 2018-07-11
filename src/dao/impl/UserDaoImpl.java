@@ -16,7 +16,11 @@ import java.util.List;
  * Date: 2018/7/11.
  */
 public class UserDaoImpl implements UserDao {
-    private JdbcUtil util = new JdbcUtil();
+    private JdbcUtil util;
+
+    public UserDaoImpl() {
+        util = new JdbcUtil();
+    }
 
     @Override
     public User add(User user) {

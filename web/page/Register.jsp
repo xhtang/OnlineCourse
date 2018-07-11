@@ -22,8 +22,6 @@
     <div id="register_form">
         <form id="registerForm">
             <h2 id="register_title">Please sign up</h2>
-            <input class="register_text placeholder_text" id="email" type="email" name="email" placeholder="Email address" required pattern="^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})">
-            <br>
             <input class="register_text placeholder_text" id="username" type="text" name="username" placeholder="Username" required>
             <br>
             <input class="register_text placeholder_text" id="password" type="password" name="password" placeholder="Password" required>
