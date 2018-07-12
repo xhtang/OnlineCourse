@@ -72,4 +72,14 @@
         <url-pattern>/search</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>SelectServlet</servlet-name>
+        <servlet-class>servlet.SelectServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SelectServlet</servlet-name>
+        <url-pattern>/select</url-pattern>
+    </servlet-mapping>
+
 </web-app>

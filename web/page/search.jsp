@@ -20,6 +20,7 @@
 <jsp:include page="include/header.jsp" />
 
 <jsp:useBean id="courses" type="java.util.List<entity.Course>" scope="request"/>
+<%--<jsp:useBean id="user" class="entity.User" scope="session"/>--%>
 
 <div class="container">
     <div class="row" style="margin-top: 10px;">
@@ -30,7 +31,7 @@
                     <div class="card-body">
                         <h5 class="card-title">${course.coursename}</h5>
                         <p class="card-text">${course.description}</p>
-                        <a href="#" class="btn btn-primary">选课</a>
+                        <a href="select?courseId=${course.id}" class="btn btn-primary">选课</a>
                     </div>
                 </div>
             </div>
