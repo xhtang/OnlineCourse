@@ -1,8 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <%@ page contentType="text/html;charset=UTF-8" %>
 
-<%--<jsp:useBean id="user" type="entity.User" scope="session"/>--%>
+<jsp:useBean id="user" class="entity.User" scope="session"/>
 
 <script src="js/login.js"></script>
 <script src="js/md5.min.js"></script>
@@ -15,7 +14,7 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 
-        <c:if test="${user==null}">
+        <c:if test="${user == null || user.username == null}">
             <button type="button" class="btn btn-primary" style="margin-right: 5px;">
                 注册
             </button>
@@ -24,17 +23,10 @@
             </button>
         </c:if>
 
-        <c:if test="${user!=null}">
+        <c:if test="${user != null && user.username != null}">
             <span id="my_space">Hello ${user.username}</span>
             <span id="logout"><a href="logout">退出</a></span>
         </c:if>
-        <%--<button type="button" class="btn btn-primary" style="margin-right: 5px;">--%>
-            <%--注册--%>
-        <%--</button>--%>
-        <%--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">--%>
-            <%--登录--%>
-        <%--</button>--%>
-
     </div>
 </nav>
 

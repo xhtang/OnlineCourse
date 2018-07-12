@@ -20,9 +20,6 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        //String str_url = request.getRequestURI();
-        System.out.println("hhhhhhhhh");
-
         if (userService.exist(username)) {
             if (userService.login(username,password) != null) {
                 request.getSession().setAttribute("user", userService.login(username,password));

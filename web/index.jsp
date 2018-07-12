@@ -52,7 +52,7 @@
     <div class="row">
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-                <img style="width: 100%;" src="res/course.jpg" alt="...">
+                <img style="width: 100%;" src="res/img/course.jpg" alt="...">
                 <div class="caption">
                     <h3>Thumbnail label</h3>
                     <p>...</p>
@@ -62,7 +62,7 @@
         </div>
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-                <img style="width: 100%;" src="res/course.jpg" alt="...">
+                <img style="width: 100%;" src="res/img/course.jpg" alt="...">
                 <div class="caption">
                     <h3>Thumbnail label</h3>
                     <p>...</p>
@@ -72,7 +72,7 @@
         </div>
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-                <img style="width: 100%;" src="res/course.jpg" alt="...">
+                <img style="width: 100%;" src="res/img/course.jpg" alt="...">
                 <div class="caption">
                     <h3>Thumbnail label</h3>
                     <p>...</p>
@@ -85,7 +85,7 @@
     </div>
 </div>
 
-<%--<a href="./page/Register.jsp">注册</a>--%>
+<a href="./page/Register.jsp">注册</a>
 <%--<a href="./page/Login.jsp">登录</a>--%>
 </body>
 </html>

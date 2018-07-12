@@ -17,8 +17,6 @@ public class LogoutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getSession().setAttribute("user", null);
 
-        System.out.println("哈哈哈哈或");
-
         RequestDispatcher dispatcher = request.getRequestDispatcher("./home");
         dispatcher.forward(request, response);
     }
