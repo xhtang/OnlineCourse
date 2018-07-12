@@ -54,4 +54,13 @@
         <url-pattern>/myspace</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>OpenCourseServlet</servlet-name>
+        <servlet-class>servlet.OpenCourseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OpenCourseServlet</servlet-name>
+        <url-pattern>/opencourse</url-pattern>
+    </servlet-mapping>
+
 </web-app>

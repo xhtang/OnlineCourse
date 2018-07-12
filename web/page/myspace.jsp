@@ -44,6 +44,14 @@
 
     </ul>
 
+
+    <c:if test="${state==\"2\"}">
+        <div style="margin-top: 10px;">
+            <a href="page/openCourse.jsp" class="btn btn-primary">添加课程</a>
+        </div>
+
+    </c:if>
+
     <div class="row" style="margin-top: 10px;">
 
         <c:forEach items="${courses}" var="courses">
