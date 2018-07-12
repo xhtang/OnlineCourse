@@ -23,11 +23,6 @@ public class PointDaoImpl implements PointDao {
     }
     @Override
     public Point add(Point point) {
-        if (point.getDescription() == null || point.getDescription().equals(""))
-            return null;
-        Point tmp = exist(point.getChapterId(), point.getDescription());
-        if (tmp != null)
-            return null;
         Connection conn = util.getConnection();
 
         String sql = "INSERT INTO point(chapterId, description) values (?, ?)";

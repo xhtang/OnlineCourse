@@ -41,6 +41,11 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public Chapter addChapter(Chapter chapter) {
+        if (chapter.getDescription() == null || chapter.getDescription().equals(""))
+            return null;
+        Chapter tmp = chapterDao.exist(chapter.getCourseId(), chapter.getDescription());
+        if (tmp != null)
+            return null;
         return chapterDao.add(chapter);
     }
 
@@ -51,6 +56,11 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public Point addPoint(Point point) {
+        if (point.getDescription() == null || point.getDescription().equals(""))
+            return null;
+        Point tmp = pointDao.exist(point.getChapterId(), point.getDescription());
+        if (tmp != null)
+            return null;
         return pointDao.add(point);
     }
 

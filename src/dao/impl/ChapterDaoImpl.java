@@ -24,9 +24,6 @@ public class ChapterDaoImpl implements ChapterDao {
 
     @Override
     public Chapter add(Chapter chapter) {
-        Chapter tmp = exist(chapter.getCourseId(), chapter.getDescription());
-        if (tmp != null)
-            return null;
         Connection conn = util.getConnection();
 
         String sql = "INSERT INTO chapter(courseId, description) values (?, ?)";
