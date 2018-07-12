@@ -70,7 +70,8 @@ public class CourseDaoImpl implements CourseDao {
 
     @Override
     public void addSelectCourse(SelectCourse selectCourse) {
-        if (!existSelectCourse(selectCourse.getUserId(), selectCourse.getCourseId())) {
+        if (!existSelectCourse(selectCourse.getUserId(), selectCourse.getCourseId()) &&
+                !existTeacCourse(selectCourse.getUserId(), selectCourse.getCourseId())) {
             Connection conn = util.getConnection();
 
             String sql = "INSERT INTO select_course(userId,courseId) values (?, ?)";
@@ -165,29 +166,7 @@ public class CourseDaoImpl implements CourseDao {
         return course;
     }
 
-    private boolean existSelectCourse(int studentId, int courseId) {
-        Connection conn = util.getConnection();
-        //language=MySQL
-        String sql = "SELECT * FROM select_course WHERE userId  = ? AND courseId = ?";
-        PreparedStatement pst = null;
-        ResultSet rs = null;
-        boolean flag = false;
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setInt(1, studentId);
-            pst.setInt(2, courseId);
-            rs =  pst.executeQuery();
-            if (rs.next()) {
-                flag = true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            util.close(rs, pst, conn);
-        }
 
-        return flag;
-    }
 
     @Override
     public List<Course> getAll() {
@@ -366,6 +345,54 @@ public class CourseDaoImpl implements CourseDao {
         } finally {
             util.close(rs, pst, conn);
         }
+        return flag;
+    }
+
+    private boolean existSelectCourse(int studentId, int courseId) {
+        Connection conn = util.getConnection();
+        //language=MySQL
+        String sql = "SELECT * FROM select_course WHERE userId  = ? AND courseId = ?";
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        boolean flag = false;
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setInt(1, studentId);
+            pst.setInt(2, courseId);
+            rs =  pst.executeQuery();
+            if (rs.next()) {
+                flag = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            util.close(rs, pst, conn);
+        }
+
+        return flag;
+    }
+
+    private boolean existTeacCourse(int teacherId, int courseId) {
+        Connection conn = util.getConnection();
+        //language=MySQL
+        String sql = "SELECT * FROM teach_course WHERE userId  = ? AND courseId = ?";
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        boolean flag = false;
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setInt(1, teacherId);
+            pst.setInt(2, courseId);
+            rs =  pst.executeQuery();
+            if (rs.next()) {
+                flag = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            util.close(rs, pst, conn);
+        }
+
         return flag;
     }
 
