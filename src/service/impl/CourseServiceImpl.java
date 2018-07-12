@@ -97,6 +97,11 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public List<Video> getVideoByPoint(int pointId) {
+        return videoDao.getVideoByPoint(pointId);
+    }
+
+    @Override
     public CourseDetails getCourseDetails(int id) {
         CourseDetails details = new CourseDetails();
         Course course = courseDao.get(id);

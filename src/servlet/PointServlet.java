@@ -3,6 +3,7 @@ package servlet;
 import entity.CourseDetails;
 import entity.Point;
 import entity.User;
+import entity.Video;
 import service.CourseService;
 import service.impl.CourseServiceImpl;
 
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "PointServlet")
 public class PointServlet extends HttpServlet {
@@ -28,6 +30,9 @@ public class PointServlet extends HttpServlet {
 
         Point point = courseService.getPoint(pointId);
         request.setAttribute("point", point);
+
+        List<Video> videoList = courseService.getVideoByPoint(pointId);
+        request.setAttribute("videoList",videoList);
 
         User user = (User) request.getSession().getAttribute("user");
         int userId = user.getId();
