@@ -109,4 +109,9 @@ public class CourseServiceImpl implements CourseService {
     public List<Course> getFreshCourses() {
         return courseDao.getFreshCourses();
     }
+
+    @Override
+    public List<Course> getAll() {
+        return courseDao.getAll();
+    }
 }

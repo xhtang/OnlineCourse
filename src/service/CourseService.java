@@ -36,4 +36,6 @@ public interface CourseService {
     List<Course> getFamousCourses();
 
     List<Course> getFreshCourses();
+
+    List<Course> getAll();
 }
