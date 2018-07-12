@@ -82,4 +82,22 @@
         <url-pattern>/select</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ResourceServlet</servlet-name>
+        <servlet-class>servlet.ResourceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResourceServlet</servlet-name>
+        <url-pattern>/resource</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HomeworkServlet</servlet-name>
+        <servlet-class>servlet.HomeworkServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HomeworkServlet</servlet-name>
+        <url-pattern>/homework</url-pattern>
+    </servlet-mapping>
+
 </web-app>
