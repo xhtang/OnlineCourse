@@ -36,6 +36,11 @@ public class CourseServiceImpl implements CourseService {
         SelectCourse selectCourse = new SelectCourse();
         selectCourse.setCourseId(courseId);
         selectCourse.setUserId(studentId);
+
+        Course course = courseDao.get(courseId);
+        course.setStudentnum(course.getStudentnum() + 1);
+        courseDao.update(course);
+
         courseDao.addSelectCourse(selectCourse);
     }
 

@@ -27,8 +27,11 @@ public class HomeServlet extends HttpServlet {
 //        }
 //        request.getSession().setAttribute("user", null);
 
-        List<Course> heat = courseService.getFamousCourses().subList(0, 3);
-        List<Course> fresh = courseService.getFreshCourses().subList(0, 3);
+        List<Course> heat = courseService.getFamousCourses();
+        List<Course> fresh = courseService.getFreshCourses();
+
+//        List<Course> heat = courseService.getFamousCourses().subList(0, 3);
+//        List<Course> fresh = courseService.getFreshCourses().subList(0, 3);
 
         request.setAttribute("heat", heat);
         request.setAttribute("latest", fresh);
