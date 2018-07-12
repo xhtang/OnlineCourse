@@ -7,7 +7,7 @@ import javax.persistence.*;
  * Date: 2018/7/9.
  */
 @Entity
-@Table(name = "teach_course", schema = "onlinecourse", catalog = "")
+@Table(name = "teach_course", schema = "onlinecourse")
 public class TeachCourse {
     private int id;
     private Integer userId;
@@ -22,7 +22,7 @@ public class TeachCourse {
     }
 
     @Id
-    @Column(name = "id")
+    @Column(name = "tcId")
     public int getId() {
         return id;
     }

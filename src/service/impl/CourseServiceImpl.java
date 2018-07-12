@@ -91,6 +91,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public List<Course> getByTeacher(int teacherId) {
+
         return courseDao.getByTeacher(teacherId);
     }
 

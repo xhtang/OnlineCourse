@@ -18,4 +18,6 @@ public interface PointDao {
     Point get(int pointId);
 
     List<Point> getPointsByChapter(int chapterId);
+
+    Point exist(int chapterId, String description);
 }

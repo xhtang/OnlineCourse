@@ -17,5 +17,7 @@ public interface VideoDao {
 
     Video get(int videoId);
 
-    List<Video> getVideoByPoint(int videoId);
+    List<Video> getVideoByPoint(int pointId);
+
+    Video exist(int pointId, String path);
 }

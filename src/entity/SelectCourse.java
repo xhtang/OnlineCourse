@@ -22,7 +22,7 @@ public class SelectCourse {
     }
 
     @Id
-    @Column(name = "id")
+    @Column(name = "scId")
     public int getId() {
         return id;
     }

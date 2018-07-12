@@ -17,6 +17,7 @@
         <setting name="provider-name" value="" />
         <datasource-mapping>
           <factory-entry name="Entities" value="05ad5661-c7d3-4f3d-880f-e862ea48fdce" />
+          <factory-entry name="noname-a.xml@0" value="05ad5661-c7d3-4f3d-880f-e862ea48fdce" />
         </datasource-mapping>
       </configuration>
     </facet>

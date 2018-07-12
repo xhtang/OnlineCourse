@@ -18,4 +18,6 @@ public interface ChapterDao {
     Chapter get(int id);
 
     List<Chapter> getByCourse(int courseId);
+
+    Chapter exist(int courseId, String description);
 }

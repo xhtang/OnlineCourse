@@ -19,6 +19,8 @@ public interface CourseDao {
 
     Course update(Course course);
 
+    Course get(String coursename, String img, String description);
+
     Course get(int id);
 
     List<Course> getAll();

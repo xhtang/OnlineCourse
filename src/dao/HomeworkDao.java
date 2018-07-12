@@ -20,5 +20,11 @@ public interface HomeworkDao {
 
     List<Homework> getByCourse(int courseId);
 
+    Homework existHomework(int courseId, String type, String content);
+
     StudentAnswer addAnswer(StudentAnswer studentAnswer);
+
+    StudentAnswer existAnswer(int studentId, int homeworkId);
+
+    StudentAnswer updateAnswer(StudentAnswer studentAnswer);
 }

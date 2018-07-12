@@ -41,14 +41,12 @@ public class UserDaoImpl implements UserDao {
         finally {
             util.close(null, pst, conn);
         }
-        return flag ? user : null;
+        return flag ? get(user.getUsername(), user.getPassword()) : null;
     }
 
     @Override
     public User update(User user) {
         Connection conn = util.getConnection();
-        // FirstName, LastName, Address, City, Region, Country, Postal, Phone, Email, Privacy)
-        //language=MySQL
         String sql = "UPDATE  user SET username = ?, password = ? WHERE userId = ?";
         PreparedStatement pst = null;
         boolean flag = false;
@@ -124,6 +122,7 @@ public class UserDaoImpl implements UserDao {
         List<User> users = new ArrayList<>();
         try {
             pst = conn.prepareStatement(sql);
+            pst.setInt(1, courseId);
             rs =  pst.executeQuery();
             while (rs.next()) {
                 users.add(buildUser(rs));

@@ -12,13 +12,15 @@ public class StudentAnswer {
     private int id;
     private Integer studentId;
     private Integer homeworkId;
+    private String answer;
 
     public StudentAnswer() {}
 
-    public StudentAnswer(int id, int studentId, int homeworkId) {
+    public StudentAnswer(int id, int studentId, int homeworkId, String answer) {
         this.id = id;
         this.studentId = studentId;
         this.homeworkId = homeworkId;
+        this.answer = answer;
     }
 
     @Id
@@ -49,6 +51,16 @@ public class StudentAnswer {
 
     public void setHomeworkId(Integer homeworkId) {
         this.homeworkId = homeworkId;
+    }
+
+    @Basic
+    @Column(name = "answer")
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
     @Override
