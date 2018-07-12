@@ -5,6 +5,7 @@
 <jsp:useBean id="user" class="entity.User" scope="session"/>
 
 <script src="js/login.js"></script>
+<script src="js/register.js"></script>
 <script src="js/md5.min.js"></script>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -22,7 +23,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 
         <c:if test="${user.username==null}">
-            <button type="button" class="btn btn-primary" style="margin-right: 5px;">
+            <button type="button" class="btn btn-primary" style="margin-right: 5px;" data-toggle="modal" data-target="#registerModal">
                 注册
             </button>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
@@ -40,11 +41,11 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">登录</h5>
+                <h5 class="modal-title" id="loginModalLongTitle">登录</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -74,4 +75,50 @@
         </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLongTitle">注册</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form>
+                    <div class="form-group row">
+                        <label for="username" class="col-sm-3 col-form-label">用户名</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="reg-username" placeholder="User Name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-3 col-form-label">密码</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" id="reg-password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-3 col-form-label">确认密码</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" id="check-password" placeholder="Password">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <button id="register" type="button" class="btn btn-primary">注册</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+</script>
 

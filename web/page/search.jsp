@@ -24,9 +24,8 @@
 
 <div class="container">
     <div class="row" style="margin-top: 10px;">
-        ${courses.size()}
         <c:forEach items="${courses}" var="course">
-            <div class="col-3">
+            <div class="col-3" style="margin-top: 10px;">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">${course.coursename}</h5>

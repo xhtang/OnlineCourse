@@ -85,7 +85,5 @@
     </div>
 </div>
 
-<a href="./page/Register.jsp">注册</a>
-<%--<a href="./page/Login.jsp">登录</a>--%>
 </body>
 </html>

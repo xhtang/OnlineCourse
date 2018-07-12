@@ -15,7 +15,7 @@ public class RedirectServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         switch (request.getServletPath()) {
-            case "/search": break;
+            case "/register": break;
             default: break;
         }
 

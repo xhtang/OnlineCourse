@@ -81,8 +81,16 @@ public class OpenCourseServlet extends HttpServlet {
             course.setImg(filename);
             courseService.openCourse(user.getId(), course);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("myspace?state=2");
+
+            request.setAttribute("courses", courseService.getByTeacher(user.getId()));
+
+            request.setAttribute("state", "2");
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("page/myspace.jsp");
+
+//            RequestDispatcher dispatcher = request.getRequestDispatcher("myspace?state=2");
             dispatcher.forward(request, response);
+
 
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
