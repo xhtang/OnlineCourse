@@ -31,7 +31,7 @@ public class OpenCourseServlet extends HttpServlet {
             DiskFileItemFactory factory = new DiskFileItemFactory();
             ServletFileUpload upload = new ServletFileUpload(factory);
             // 设置上传文件的大小限制为1M
-            factory.setSizeThreshold(1024 * 1024);
+            factory.setSizeThreshold(4096 * 4096);
 
             List items = null;
             try {
