@@ -37,7 +37,7 @@ public interface CourseDao {
 
     Course delete(int id);
 
-    boolean exists(String courseName);
+    Course exists(String courseName);
 
     boolean existSelectCourse(int studentId, int courseId);
 

@@ -18,6 +18,11 @@ public class CourseServiceImpl implements CourseService {
     private VideoDao videoDao = DaoFactory.getVideoDaoImpl();
     @Override
     public Course openCourse(int teacherId, Course course) {
+        Course tmp = courseDao.exists(course.getCoursename());
+        if (tmp != null)
+            if (courseDao.existTeacCourse(teacherId, tmp.getId()))
+                return null;
+
         course = courseDao.add(course);
         TeachCourse teachCourse = new TeachCourse();
         teachCourse.setCourseId(course.getId());

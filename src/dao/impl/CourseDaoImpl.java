@@ -324,28 +324,29 @@ public class CourseDaoImpl implements CourseDao {
     }
 
     @Override
-    public boolean exists(String courseName) {
+    public Course exists(String courseName) {
         Connection conn = util.getConnection();
         //language=MySQL
         String sql = "SELECT * FROM course WHERE coursename = ?";
         PreparedStatement pst = null;
         ResultSet rs = null;
-        boolean flag = false;
+        Course course = null;
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, courseName);
             rs = pst.executeQuery();
             if (rs.next()) {
-                flag =true;
+                course = buildCourse(rs);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             util.close(rs, pst, conn);
         }
-        return flag;
+        return course;
     }
 
+    @Override
     public boolean existSelectCourse(int studentId, int courseId) {
         Connection conn = util.getConnection();
         //language=MySQL
@@ -370,6 +371,7 @@ public class CourseDaoImpl implements CourseDao {
         return flag;
     }
 
+    @Override
     public boolean existTeacCourse(int teacherId, int courseId) {
         Connection conn = util.getConnection();
         //language=MySQL
