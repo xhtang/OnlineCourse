@@ -58,7 +58,6 @@
     </c:if>
 
     <div class="row" style="margin-top: 10px;">
-        ${courses.size()}
 
         <c:forEach items="${courses}" var="course">
             <div class="col-3">
@@ -66,7 +65,7 @@
                     <div class="card-body">
                         <h5 class="card-title">${course.coursename}</h5>
                         <p class="card-text">${course.description}</p>
-                        <a href="#" class="btn btn-primary">查看</a>
+                        <a href="detail?courseId=${course.id}" class="btn btn-primary">查看</a>
                     </div>
                 </div>
             </div>

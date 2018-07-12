@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: flower
@@ -17,66 +18,88 @@
 <body>
 <jsp:include page="include/header.jsp"/>
 
+<jsp:useBean id="courseDetail" type="entity.CourseDetails" scope="request"/>
+<jsp:useBean id="userState" type="java.lang.String" scope="request"/>
+
 
 <div class="container" style="padding: 10px;">
-    <div class="row">
-        <div class="col-6">
+
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-8">
             <div id="accordion">
 
+                <c:if test="${courseDetail.chapterDetailsList.size()==0}">
+                    <div>当前课程暂无章节</div>
+                </c:if>
                 <!--对章节循环-->
-                <div class="card">
-                    <div class="card-header" id="headingOne">
-                        <!-- 对章节知识点循环 -->
-                        <h5 class="mb-0">
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Collapsible Group Item #1
-                            </button>
-                        </h5>
-                    </div>
+                <c:forEach items="${courseDetail.chapterDetailsList}" var="chapterDetail">
+                    <div class="card">
+                        <div class="card-header" id="heading${chapterDetail.chapter.description}">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    ${chapterDetail.chapter.description}
+                                </button>
+                            </h5>
+                        </div>
 
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        <div id="collapse${chapterDetail.chapter.description}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+                                <ul>
+                                    <!-- 对章节知识点循环 -->
+                                    <c:forEach items="${chapterDetail.points}" var="point">
+                                        <li>${point.description}</li>
+                                    </c:forEach>
+
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingTwo">
-                        <h5 class="mb-0">
-                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Collapsible Group Item #2
-                            </button>
-                        </h5>
-                    </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingThree">
-                        <h5 class="mb-0">
-                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Collapsible Group Item #3
-                            </button>
-                        </h5>
-                    </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
+                </c:forEach>
+
             </div>
         </div>
 
 
 
 
-        <div class="col-6"></div>
+        <div class="col-4">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addChapterModal">
+                添加章节
+            </button>
+        </div>
     </div>
 
+</div>
+
+<div class="modal fade" id="addChapterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">添加新章节</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form action="">
+                    <div class="form-group row">
+                        <label for="chapterDescription" class="col-sm-3 col-form-label">章节名称</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="chapterDescription" placeholder="Chapter Description">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                        <button id="create_new_chapter" type="submit" class="btn btn-primary">创建</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
 </div>
 
 

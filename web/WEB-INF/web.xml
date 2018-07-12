@@ -100,4 +100,13 @@
         <url-pattern>/homework</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AddChapterServlet</servlet-name>
+        <servlet-class>servlet.AddChapterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddChapterServlet</servlet-name>
+        <url-pattern>/addChapter</url-pattern>
+    </servlet-mapping>
+
 </web-app>
