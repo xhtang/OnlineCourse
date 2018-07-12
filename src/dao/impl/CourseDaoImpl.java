@@ -346,7 +346,7 @@ public class CourseDaoImpl implements CourseDao {
         return flag;
     }
 
-    private boolean existSelectCourse(int studentId, int courseId) {
+    public boolean existSelectCourse(int studentId, int courseId) {
         Connection conn = util.getConnection();
         //language=MySQL
         String sql = "SELECT * FROM select_course WHERE userId  = ? AND courseId = ?";
@@ -370,7 +370,7 @@ public class CourseDaoImpl implements CourseDao {
         return flag;
     }
 
-    private boolean existTeacCourse(int teacherId, int courseId) {
+    public boolean existTeacCourse(int teacherId, int courseId) {
         Connection conn = util.getConnection();
         //language=MySQL
         String sql = "SELECT * FROM teach_course WHERE userId  = ? AND courseId = ?";

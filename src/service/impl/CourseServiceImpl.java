@@ -119,4 +119,14 @@ public class CourseServiceImpl implements CourseService {
     public List<Course> getByName(String coursename) {
         return courseDao.getByName(coursename);
     }
+
+    @Override
+    public String getUserAndCourseState(int userId, int courseId) {
+        if (courseDao.existTeacCourse(userId, courseId))
+            return "MyTeachCourse";
+        else if (courseDao.existSelectCourse(userId, courseId))
+            return "MySelectCourse";
+        else
+            return "visitor";
+    }
 }

@@ -39,5 +39,9 @@ public interface CourseDao {
 
     boolean exists(String courseName);
 
+    boolean existSelectCourse(int studentId, int courseId);
+
+    boolean existTeacCourse(int teacherId, int courseId);
+
     void withdrawal(int studentId, int courseId);
 }

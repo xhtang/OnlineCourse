@@ -40,4 +40,6 @@ public interface CourseService {
     List<Course> getAll();
 
     List<Course> getByName(String coursename);
+
+    String getUserAndCourseState(int userId, int courseId);
 }
