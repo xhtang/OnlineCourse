@@ -21,9 +21,6 @@ public class SearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String coursename = request.getParameter("coursename");
 
-        System.out.println("post");
-        System.out.println(coursename);
-
         if (coursename==null || "".equals(coursename)) {
             request.setAttribute("courses", courseService.getAll());
         } else {
@@ -36,9 +33,6 @@ public class SearchServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String coursename = request.getParameter("coursename");
-
-        System.out.println("get");
-        System.out.println(coursename);
 
         if (coursename==null || "".equals(coursename)) {
             List<Course> courseList = courseService.getAll();

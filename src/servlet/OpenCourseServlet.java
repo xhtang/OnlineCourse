@@ -9,6 +9,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import service.CourseService;
 import service.impl.CourseServiceImpl;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -78,7 +79,10 @@ public class OpenCourseServlet extends HttpServlet {
 
             }
             course.setImg(filename);
-            course = courseService.openCourse(user.getId(), course);
+            courseService.openCourse(user.getId(), course);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("myspace?state=2");
+            dispatcher.forward(request, response);
 
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
