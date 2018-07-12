@@ -33,15 +33,17 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public void selectCourse(int studentId, int courseId) {
-        SelectCourse selectCourse = new SelectCourse();
-        selectCourse.setCourseId(courseId);
-        selectCourse.setUserId(studentId);
+        if (studentId != 0) {
+            SelectCourse selectCourse = new SelectCourse();
+            selectCourse.setCourseId(courseId);
+            selectCourse.setUserId(studentId);
 
-        Course course = courseDao.get(courseId);
-        course.setStudentnum(course.getStudentnum() + 1);
-        courseDao.update(course);
+            Course course = courseDao.get(courseId);
+            course.setStudentnum(course.getStudentnum() + 1);
+            courseDao.update(course);
 
-        courseDao.addSelectCourse(selectCourse);
+            courseDao.addSelectCourse(selectCourse);
+        }
     }
 
     @Override
