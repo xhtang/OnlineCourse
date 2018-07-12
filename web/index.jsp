@@ -67,7 +67,7 @@
     <div class="row">
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-                <img style="width: 100%;" src="res/img/${latest[0].img}" alt="...">
+                <img style="width: 100%; height: 300px;" src="res/img/${latest[0].img}" alt="...">
                 <div class="caption">
                     <h3>${latest[0].coursename}</h3>
                     <p>${latest[0].description}</p>
@@ -77,7 +77,7 @@
         </div>
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-                <img style="width: 100%;" src="res/img/${latest[1].img}" alt="...">
+                <img style="width: 100%; height: 300px;" src="res/img/${latest[1].img}" alt="...">
                 <div class="caption">
                     <h3>${latest[1].coursename}</h3>
                     <p>${latest[1].description}</p>
@@ -87,7 +87,7 @@
         </div>
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-                <img style="width: 100%;" src="res/img/${latest[2].img}" alt="...">
+                <img style="width: 100%; height: 300px;" src="res/img/${latest[2].img}" alt="...">
                 <div class="caption">
                     <h3>${latest[2].coursename}</h3>
                     <p>${latest[2].description}</p>

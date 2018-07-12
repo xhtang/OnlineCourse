@@ -21,18 +21,39 @@
 
 <jsp:useBean id="courseDetail" type="entity.CourseDetails" scope="session"/>
 <jsp:useBean id="point" type="entity.Point" scope="request"/>
+<jsp:useBean id="videoList" type="java.util.List<entity.Video>" scope="request"/>
 
 <div class="container" style="padding: 10px;">
 
-    <h3><span class="badge badge-secondary">${courseDetail.course.coursename}</span></h3>
     <div class="row" style="margin-top: 10px;">
-        <div class="col-6">
+        <div class="col-8">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">${courseDetail.course.coursename}</a></li>
+                    <li class="breadcrumb-item"><a href="#">${point.description}</a></li>
+                </ol>
+            </nav>
+
+            <form method="post" action="addVideo" enctype="multipart/form-data">
+                <div class="form-group">
+                    <button id="video_chooser" type="button" class="btn btn-primary">选择视频</button>
+
+                    <button id="upload" type="submit" class="btn btn-primary">上传</button>
+
+                    <input name="pointId" value="${point.id}" hidden>
+                    <input id="uploade_video" accept="video/mp4" type="file" name="video" hidden/>
+                </div>
+            </form>
+
+            <c:forEach items="${videoList}" var="video">
+                <video style="width: 100%; margin-top: 20px;" src="res/video/${video.path}" controls="controls">
+                    您的浏览器不支持 video 标签。
+                </video>
+            </c:forEach>
+
 
         </div>
 
-
-        <div class="col-2">
-        </div>
 
         <div class="col-4">
 
@@ -56,7 +77,11 @@
 
 </div>
 
-
+<script>
+    $("#video_chooser").click(function () {
+        $("#uploade_video").click();
+    });
+</script>
 
 </body>
 </html>
