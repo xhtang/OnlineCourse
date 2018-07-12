@@ -29,6 +29,8 @@ public interface CourseService {
 
     void deleteVideo(int videoId);
 
+    List<Video> getVideoByPoint(int pointId);
+
     CourseDetails getCourseDetails(int id);
 
     List<Course> getByTeacher(int teacherId);
