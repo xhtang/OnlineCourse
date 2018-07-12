@@ -45,4 +45,13 @@
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>MySpaceServlet</servlet-name>
+        <servlet-class>servlet.MySpaceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MySpaceServlet</servlet-name>
+        <url-pattern>/myspace</url-pattern>
+    </servlet-mapping>
+
 </web-app>

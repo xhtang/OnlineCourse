@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ page contentType="text/html;charset=UTF-8" %>
 
 <jsp:useBean id="user" class="entity.User" scope="session"/>
@@ -14,7 +15,7 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 
-        <c:if test="${user == null || user.username == null}">
+        <c:if test="${user.username==null}">
             <button type="button" class="btn btn-primary" style="margin-right: 5px;">
                 注册
             </button>
@@ -23,10 +24,11 @@
             </button>
         </c:if>
 
-        <c:if test="${user != null && user.username != null}">
-            <span id="my_space">Hello ${user.username}</span>
+        <c:if test="${user.username!=null}">
+            <span id="my_space" style="margin-right: 10px;">Hello <a href="myspace?state=1">${user.username}</a> </span>
             <span id="logout"><a href="logout">退出</a></span>
         </c:if>
+
     </div>
 </nav>
 
