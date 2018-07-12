@@ -63,7 +63,8 @@
             <div class="col-3" style="margin-top: 10px;">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">${course.coursename}</h5>
+                        <img style="width: 100%; height: 150px;" src="res/img/${course.img}">
+                        <h5 style="margin-top: 10px;" class="card-title">${course.coursename}</h5>
                         <p class="card-text">${course.description}</p>
                         <a href="detail?courseId=${course.id}" class="btn btn-primary">查看</a>
                     </div>

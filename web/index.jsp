@@ -33,12 +33,24 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img height="500px" class="d-block w-100" src="res/img/${heat[0].img}" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>${heat[0].coursename}</h5>
+                <p>${heat[0].description}</p>
+            </div>
         </div>
         <div class="carousel-item">
             <img height="500px" class="d-block w-100" src="res/img/${heat[1].img}" alt="Second slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>${heat[1].coursename}</h5>
+                <p>${heat[1].description}</p>
+            </div>
         </div>
         <div class="carousel-item">
             <img height="500px" class="d-block w-100" src="res/img/${heat[2].img}" alt="Third slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>${heat[2].coursename}</h5>
+                <p>${heat[2].description}</p>
+            </div>
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
