@@ -13,6 +13,12 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
+
+    <form action="search" class="form-inline my-2 my-lg-0" style="margin-right: 20px;">
+        <input name="coursename" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 
         <c:if test="${user.username==null}">

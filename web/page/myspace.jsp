@@ -44,7 +44,12 @@
 
     </ul>
 
+    <c:if test="${state==\"1\"}">
+        <div style="margin-top: 10px;">
+            <a href="search" class="btn btn-primary">选课</a>
+        </div>
 
+    </c:if>
     <c:if test="${state==\"2\"}">
         <div style="margin-top: 10px;">
             <a href="page/openCourse.jsp" class="btn btn-primary">添加课程</a>
@@ -55,13 +60,13 @@
     <div class="row" style="margin-top: 10px;">
         ${courses.size()}
 
-        <c:forEach items="${courses}" var="courses">
+        <c:forEach items="${courses}" var="course">
             <div class="col-3">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h5 class="card-title">${course.coursename}</h5>
+                        <p class="card-text">${course.description}</p>
+                        <a href="#" class="btn btn-primary">查看</a>
                     </div>
                 </div>
             </div>

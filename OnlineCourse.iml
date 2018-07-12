@@ -16,8 +16,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="" />
         <datasource-mapping>
-          <factory-entry name="Entities" value="05ad5661-c7d3-4f3d-880f-e862ea48fdce" />
-          <factory-entry name="noname-a.xml@0" value="05ad5661-c7d3-4f3d-880f-e862ea48fdce" />
+          <factory-entry name="Entities" value="852d8260-c5be-4dd6-8af7-e896c6731f03" />
         </datasource-mapping>
       </configuration>
     </facet>
@@ -29,11 +28,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="jstl" level="project" />
-    <orderEntry type="library" name="javaee" level="project" />
-    <orderEntry type="library" name="mysql-connector-java-5.1.44-bin" level="project" />
-    <orderEntry type="library" name="mysql-connector-java-5.1.44-bin (2)" level="project" />
-    <orderEntry type="library" name="jstl (2)" level="project" />
-    <orderEntry type="library" name="standard" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="web-lib" level="project" />
   </component>
 </module>
