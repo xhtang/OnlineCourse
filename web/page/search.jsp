@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: flower
@@ -29,7 +30,7 @@
                     <div class="card-body">
                         <h5 class="card-title">${course.coursename}</h5>
                         <p class="card-text">${course.description}</p>
-                        <a href="#" class="btn btn-primary">查看</a>
+                        <a href="#" class="btn btn-primary">选课</a>
                     </div>
                 </div>
             </div>

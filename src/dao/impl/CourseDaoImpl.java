@@ -174,7 +174,7 @@ public class CourseDaoImpl implements CourseDao {
         try {
             pst = conn.prepareStatement(sql);
             rs =  pst.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 courseList.add(buildCourse(rs));
             }
         } catch (SQLException e) {
