@@ -25,7 +25,7 @@
 <div class="container" style="padding: 10px;">
 
     <div class="row" style="margin-top: 10px;">
-        <div class="col-8">
+        <div class="col-6">
             <div id="accordion">
 
                 <c:if test="${courseDetail.chapterDetailsList.size()==0}">
@@ -36,13 +36,16 @@
                     <div class="card">
                         <div class="card-header" id="heading${chapterDetail.chapter.description}">
                             <h5 class="mb-0">
-                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse${chapterDetail.chapter.description}" aria-expanded="true" aria-controls="collapse${chapterDetail.chapter.description}">
                                     ${chapterDetail.chapter.description}
+                                </button>
+                                <button  class="btn btn-link" style="float: right;" data-toggle="modal" data-target="#addPointModal">
+                                    添加知识点
                                 </button>
                             </h5>
                         </div>
 
-                        <div id="collapse${chapterDetail.chapter.description}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div id="collapse${chapterDetail.chapter.description}" class="collapse show" aria-labelledby="heading${chapterDetail.chapter.description}" data-parent="#accordion">
                             <div class="card-body">
                                 <ul>
                                     <!-- 对章节知识点循环 -->
@@ -60,7 +63,8 @@
         </div>
 
 
-
+        <div class="col-2">
+        </div>
 
         <div class="col-4">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addChapterModal">
@@ -75,27 +79,58 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">添加新章节</h5>
+                <h5 class="modal-title" id="addChapterModalLongTitle">添加新章节</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
 
-                <form action="addChapter">
+                <form action="addChapter" id="addChapterForm">
                     <div class="form-group row">
                         <label for="chapterDescription" class="col-sm-3 col-form-label">章节名称</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" name="chapterDescription" id="chapterDescription" placeholder="Chapter Description">
                         </div>
                     </div>
+                </form>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                        <button id="create_new_chapter" type="submit" class="btn btn-primary">创建</button>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <button form="addChapterForm" type="submit" class="btn btn-primary">创建</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addPointModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addPointModalLongTitle">添加新知识点</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form action="addPoint" id="addPointForm">
+                    <div class="form-group row">
+                        <label for="PointDescription" class="col-sm-3 col-form-label">知识点名称</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="PointDescription" id="PointDescription" placeholder="Point Description">
+                        </div>
                     </div>
                 </form>
 
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <button form="addPointForm" type="submit" class="btn btn-primary">创建</button>
             </div>
 
         </div>

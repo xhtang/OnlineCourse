@@ -109,4 +109,15 @@
         <url-pattern>/addChapter</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>AddPointServlet</servlet-name>
+        <servlet-class>servlet.AddPointServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddPointServlet</servlet-name>
+        <url-pattern>/addPoint</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>
