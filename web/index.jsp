@@ -19,6 +19,8 @@
 </head>
 <body>
 
+<jsp:include page="page/include/header.jsp" />
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -45,7 +47,6 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-
 
 <div class="container" style="margin-top: 10px;">
     <div class="row">
@@ -83,7 +84,8 @@
 
     </div>
 </div>
-<a href="./page/Register.jsp">注册</a>
-<a href="login">登录</a>
+
+<%--<a href="./page/Register.jsp">注册</a>--%>
+<%--<a href="./page/Login.jsp">登录</a>--%>
 </body>
 </html>

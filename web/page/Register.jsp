@@ -16,8 +16,6 @@
 </head>
 <body>
 
-<%@include file="include/header.jsp"%>
-
 <div>
     <div id="register_form">
         <form id="registerForm">

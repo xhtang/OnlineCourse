@@ -17,9 +17,10 @@ public class JDBCExample {
 		System.out.println("MySQL JDBC Driver Registered!");
 		Connection connection = null;
 		try {
-			connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/company", "root", "123456");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinecourse", "root", "root");
 		} catch (SQLException e) {
 			System.out.println("Connection Failed! Check output console");
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 			return;
 		}

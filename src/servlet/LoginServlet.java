@@ -4,6 +4,7 @@ package servlet;
 import service.UserService;
 import service.impl.UserServiceImpl;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,12 +21,14 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         //String str_url = request.getRequestURI();
+        System.out.println("hhhhhhhhh");
 
         if (userService.exist(username)) {
             if (userService.login(username,password) != null) {
                 request.getSession().setAttribute("user", userService.login(username,password));
 
                 response.getWriter().print("{\"existed\": \"TRUE\",\"password\": \"TRUE\"}");
+
             }
             else {
                 response.getWriter().print("{\"existed\": \"TRUE\",\"password\": \"FALSE\"}");

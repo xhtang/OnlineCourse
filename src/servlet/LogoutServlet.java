@@ -1,32 +1,25 @@
 package servlet;
 
-import entity.Course;
-import entity.User;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 
-public class HomeServlet extends HttpServlet {
+@WebServlet(name = "LogoutServlet")
+public class LogoutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        User user = (User) request.getSession().getAttribute("user");
-//        if (user == null) {
-//            request.setAttribute("user", null);
-//        }
-//        request.getSession().setAttribute("user", null);
+        request.getSession().setAttribute("user", null);
 
-        request.setAttribute("heat", new ArrayList<Course>());
-        request.setAttribute("latest", new ArrayList<Course>());
+        System.out.println("哈哈哈哈或");
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("./home");
         dispatcher.forward(request, response);
     }
 }

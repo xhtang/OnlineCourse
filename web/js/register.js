@@ -55,6 +55,7 @@ $(document).ready(function () {
                 var password_test = ((password === check_password) && pattern_pass.test(password));
 
                 if (password_test) {
+                    alert($("#username").val());
                     $.post("../register", // path
 
                         //在这里加密
