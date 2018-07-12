@@ -34,18 +34,20 @@
                 <!--对章节循环-->
                 <c:forEach items="${courseDetail.chapterDetailsList}" var="chapterDetail">
                     <div class="card">
-                        <div class="card-header" id="heading${chapterDetail.chapter.description}">
+                        <div class="card-header" id="heading${chapterDetail.chapter.id}">
                             <h5 class="mb-0">
-                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse${chapterDetail.chapter.description}" aria-expanded="true" aria-controls="collapse${chapterDetail.chapter.description}">
+
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse${chapterDetail.chapter.id}" aria-expanded="true" aria-controls="collapse${chapterDetail.chapter.id}">
                                     ${chapterDetail.chapter.description}
                                 </button>
-                                <button  class="btn btn-link" style="float: right;" data-toggle="modal" data-target="#addPointModal">
+
+                                <button id="addPointButton${chapterDetail.chapter.id}" chapterId="${chapterDetail.chapter.id}" class="btn btn-link addPointButton" style="float: right;" data-toggle="modal" data-target="#addPointModal">
                                     添加知识点
                                 </button>
                             </h5>
                         </div>
 
-                        <div id="collapse${chapterDetail.chapter.description}" class="collapse show" aria-labelledby="heading${chapterDetail.chapter.description}" data-parent="#accordion">
+                        <div id="collapse${chapterDetail.chapter.id}" class="collapse show" aria-labelledby="heading${chapterDetail.chapter.id}" data-parent="#accordion">
                             <div class="card-body">
                                 <ul>
                                     <!-- 对章节知识点循环 -->
@@ -121,7 +123,8 @@
                     <div class="form-group row">
                         <label for="PointDescription" class="col-sm-3 col-form-label">知识点名称</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="PointDescription" id="PointDescription" placeholder="Point Description">
+                            <input type="text" class="form-control" name="pointDescription" id="PointDescription" placeholder="Point Description">
+                            <input id="chapterId" name="chapterId" hidden>
                         </div>
                     </div>
                 </form>
@@ -136,6 +139,14 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(".addPointButton").click(function () {
+
+        var currentChapterId = $(this).attr("chapterId");
+        $("#chapterId").val(currentChapterId);
+    })
+</script>
 
 
 </body>
