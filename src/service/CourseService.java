@@ -21,6 +21,8 @@ public interface CourseService {
 
     Point addPoint(Point point);
 
+    Point getPoint(int pointId);
+
     void deletePoint(int pointId);
 
     Video addVideo(Video video);

@@ -65,6 +65,11 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public Point getPoint(int pointId) {
+        return pointDao.get(pointId);
+    }
+
+    @Override
     public void deletePoint(int pointId) {
         pointDao.delete(pointId);
     }
