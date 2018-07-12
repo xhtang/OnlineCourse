@@ -53,6 +53,7 @@
     </c:if>
 
     <div class="row" style="margin-top: 10px;">
+        ${courses.size()}
 
         <c:forEach items="${courses}" var="courses">
             <div class="col-3">

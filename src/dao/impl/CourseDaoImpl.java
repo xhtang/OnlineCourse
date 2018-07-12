@@ -27,7 +27,7 @@ public class CourseDaoImpl implements CourseDao {
     public Course add(Course course) {
         Connection conn = util.getConnection();
 
-        String sql = "INSERT INTO course(coursename, img, description) values (?, ?, ?)";
+        String sql = "INSERT INTO course(coursename, img, description, studentnum) values (?, ?,?, ?)";
         PreparedStatement pst = null;
         boolean flag = false;
         try {
@@ -35,6 +35,7 @@ public class CourseDaoImpl implements CourseDao {
             pst.setString(1, course.getCoursename());
             pst.setString(2, course.getImg());
             pst.setString(3, course.getDescription());
+            pst.setInt(4, course.getStudentnum());
             pst.executeUpdate();
             flag = true;
         } catch (SQLException e) {
@@ -188,7 +189,7 @@ public class CourseDaoImpl implements CourseDao {
     @Override
     public List<Course> getByTeacher(int teacherId) {
         Connection conn = util.getConnection();
-        String sql = "SELECT * FROM course INNER JOIN teach_course ON course.id = teach_course.userId WHERE teach_course.userId = ?";
+        String sql = "SELECT * FROM course INNER JOIN teach_course ON course.id = teach_course.courseId WHERE teach_course.userId = ?";
         PreparedStatement pst = null;
         ResultSet rs = null;
         List<Course> courseList = new ArrayList<>();
