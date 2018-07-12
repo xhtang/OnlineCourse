@@ -166,8 +166,6 @@ public class CourseDaoImpl implements CourseDao {
         return course;
     }
 
-
-
     @Override
     public List<Course> getAll() {
         Connection conn = util.getConnection();

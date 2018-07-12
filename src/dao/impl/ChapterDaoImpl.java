@@ -124,7 +124,7 @@ public class ChapterDaoImpl implements ChapterDao {
             pst = conn.prepareStatement(sql);
             pst.setInt(1, courseId);
             rs =  pst.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 chapterList.add(buildChapter(rs));
             }
         } catch (SQLException e) {

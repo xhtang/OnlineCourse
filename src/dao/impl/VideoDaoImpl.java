@@ -120,7 +120,7 @@ public class VideoDaoImpl implements VideoDao {
             pst = conn.prepareStatement(sql);
             pst.setInt(1, pointId);
             rs =  pst.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 videoList.add(buildVideo(rs));
             }
         } catch (SQLException e) {

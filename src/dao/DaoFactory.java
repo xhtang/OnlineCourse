@@ -24,4 +24,6 @@ public class DaoFactory {
     public static PointDao getPointDaoImpl() {return new PointDaoImpl();}
 
     public static VideoDao getVideoDaoImpl() { return new VideoDaoImpl(); }
+
+    public static ResourceDao getResourceDaoImpl() { return  new ResourceDaoImpl(); }
 }

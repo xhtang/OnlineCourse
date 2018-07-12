@@ -120,7 +120,7 @@ public class PointDaoImpl implements PointDao {
             pst = conn.prepareStatement(sql);
             pst.setInt(1, chapterId);
             rs =  pst.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 pointList.add(buildPoint(rs));
             }
         } catch (SQLException e) {

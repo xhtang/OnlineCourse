@@ -150,7 +150,7 @@ public class HomeworkDaoImpl implements HomeworkDao {
             pst = conn.prepareStatement(sql);
             pst.setInt(1, courseId);
             rs =  pst.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 homeworkList.add(buildHomework(rs));
             }
         } catch (SQLException e) {
