@@ -18,7 +18,7 @@
 <body>
 <jsp:include page="include/header.jsp"/>
 
-<jsp:useBean id="courseDetail" type="entity.CourseDetails" scope="request"/>
+<jsp:useBean id="courseDetail" type="entity.CourseDetails" scope="session"/>
 <jsp:useBean id="userState" type="java.lang.String" scope="request"/>
 
 
@@ -82,7 +82,7 @@
             </div>
             <div class="modal-body">
 
-                <form action="">
+                <form action="addChapter">
                     <div class="form-group row">
                         <label for="chapterDescription" class="col-sm-3 col-form-label">章节名称</label>
                         <div class="col-sm-9">

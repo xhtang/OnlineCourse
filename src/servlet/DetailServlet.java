@@ -29,7 +29,7 @@ public class DetailServlet extends HttpServlet {
 
         CourseDetails courseDetails = courseService.getCourseDetails(courseId);
 
-        request.setAttribute("courseDetail", courseDetails);
+        request.getSession().setAttribute("courseDetail", courseDetails);
 
         String userstate = courseService.getUserAndCourseState(userId, courseId);
         request.setAttribute("userState", userstate);
