@@ -119,5 +119,14 @@
         <url-pattern>/addPoint</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>PointServlet</servlet-name>
+        <servlet-class>servlet.PointServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PointServlet</servlet-name>
+        <url-pattern>/point</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>

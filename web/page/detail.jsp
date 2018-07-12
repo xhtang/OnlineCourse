@@ -24,6 +24,7 @@
 
 <div class="container" style="padding: 10px;">
 
+    <h3><span class="badge badge-secondary">${courseDetail.course.coursename}</span></h3>
     <div class="row" style="margin-top: 10px;">
         <div class="col-6">
             <div id="accordion">
@@ -49,10 +50,10 @@
 
                         <div id="collapse${chapterDetail.chapter.id}" class="collapse show" aria-labelledby="heading${chapterDetail.chapter.id}" data-parent="#accordion">
                             <div class="card-body">
-                                <ul>
+                                <ul class="list-group list-group-flush">
                                     <!-- 对章节知识点循环 -->
                                     <c:forEach items="${chapterDetail.points}" var="point">
-                                        <li>${point.description}</li>
+                                        <li class="list-group-item list-group-item-action"><a href="point?pointId=${point.id}">${point.description}</a></li>
                                     </c:forEach>
 
                                 </ul>
