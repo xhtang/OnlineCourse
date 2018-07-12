@@ -86,7 +86,7 @@
                     <div class="form-group row">
                         <label for="chapterDescription" class="col-sm-3 col-form-label">章节名称</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="chapterDescription" placeholder="Chapter Description">
+                            <input type="text" class="form-control" name="chapterDescription" id="chapterDescription" placeholder="Chapter Description">
                         </div>
                     </div>
 

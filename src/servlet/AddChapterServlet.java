@@ -19,6 +19,10 @@ public class AddChapterServlet extends HttpServlet {
     private CourseService courseService = new CourseServiceImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CourseDetails courseDetails = (CourseDetails) request.getSession().getAttribute("courseDetail");
         Course course = courseDetails.getCourse();
         String chapterDescription = request.getParameter("chapterDescription");
@@ -28,14 +32,7 @@ public class AddChapterServlet extends HttpServlet {
         chapter.setDescription(chapterDescription);
         courseService.addChapter(chapter);
 
-        courseDetails = courseService.getCourseDetails(course.getId());
-        request.getSession().setAttribute("courseDetail", courseDetails);
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("page/detail.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("detail?courseId="+ course.getId());
         dispatcher.forward(request, response);
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }
