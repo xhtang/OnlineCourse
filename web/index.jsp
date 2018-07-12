@@ -21,6 +21,9 @@
 
 <jsp:include page="page/include/header.jsp" />
 
+<jsp:useBean id="heat" type="java.util.List<entity.Course>" scope="request"/>
+<jsp:useBean id="latest" type="java.util.List<entity.Course>" scope="request"/>
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -29,13 +32,13 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img class="d-block w-100" src="https://static.runoob.com/images/mix/img_fjords_wide.jpg" alt="First slide">
+            <img height="500px" class="d-block w-100" src="res/img/${heat[0].img}" alt="First slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="https://static.runoob.com/images/mix/img_nature_wide.jpg" alt="Second slide">
+            <img height="500px" class="d-block w-100" src="res/img/${heat[1].img}" alt="Second slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="https://static.runoob.com/images/mix/img_mountains_wide.jpg" alt="Third slide">
+            <img height="500px" class="d-block w-100" src="res/img/${heat[2].img}" alt="Third slide">
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -52,31 +55,31 @@
     <div class="row">
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-                <img style="width: 100%;" src="res/img/course.jpg" alt="...">
+                <img style="width: 100%;" src="res/img/${latest[0].img}" alt="...">
                 <div class="caption">
-                    <h3>Thumbnail label</h3>
-                    <p>...</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    <h3>${latest[0].coursename}</h3>
+                    <p>${latest[0].description}</p>
+                    <p><a href="detail?courseId=${latest[0].id}" class="btn btn-primary" role="button">查看</a></p>
                 </div>
             </div>
         </div>
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-                <img style="width: 100%;" src="res/img/course.jpg" alt="...">
+                <img style="width: 100%;" src="res/img/${latest[1].img}" alt="...">
                 <div class="caption">
-                    <h3>Thumbnail label</h3>
-                    <p>...</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    <h3>${latest[1].coursename}</h3>
+                    <p>${latest[1].description}</p>
+                    <p><a href="detail?courseId=${latest[1].id}" class="btn btn-primary" role="button">查看</a></p>
                 </div>
             </div>
         </div>
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-                <img style="width: 100%;" src="res/img/course.jpg" alt="...">
+                <img style="width: 100%;" src="res/img/${latest[2].img}" alt="...">
                 <div class="caption">
-                    <h3>Thumbnail label</h3>
-                    <p>...</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    <h3>${latest[2].coursename}</h3>
+                    <p>${latest[2].description}</p>
+                    <p><a href="detail?courseId=${latest[2].id}" class="btn btn-primary" role="button">查看</a></p>
                 </div>
             </div>
         </div>

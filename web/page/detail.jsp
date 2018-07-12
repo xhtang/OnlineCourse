@@ -6,7 +6,7 @@
   Time: 20:09
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="java.util.*" %>
 <html>
 <head>
     <title>课程详情</title>
@@ -42,9 +42,12 @@
                                     ${chapterDetail.chapter.description}
                                 </button>
 
-                                <button id="addPointButton${chapterDetail.chapter.id}" chapterId="${chapterDetail.chapter.id}" class="btn btn-link addPointButton" style="float: right;" data-toggle="modal" data-target="#addPointModal">
-                                    添加知识点
-                                </button>
+                                <c:if test="${\"MyTeachCourse\".equals(userState)}">
+                                    <button id="addPointButton${chapterDetail.chapter.id}" chapterId="${chapterDetail.chapter.id}" class="btn btn-link addPointButton" style="float: right;" data-toggle="modal" data-target="#addPointModal">
+                                        添加知识点
+                                    </button>
+                                </c:if>
+
                             </h5>
                         </div>
 
@@ -70,9 +73,12 @@
         </div>
 
         <div class="col-4">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addChapterModal">
-                添加章节
-            </button>
+            <c:if test="${\"MyTeachCourse\".equals(userState)}">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addChapterModal">
+                    添加章节
+                </button>
+            </c:if>
+
         </div>
     </div>
 
