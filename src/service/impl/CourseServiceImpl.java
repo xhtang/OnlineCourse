@@ -114,4 +114,9 @@ public class CourseServiceImpl implements CourseService {
     public List<Course> getAll() {
         return courseDao.getAll();
     }
+
+    @Override
+    public List<Course> getByName(String coursename) {
+        return courseDao.getByName(coursename);
+    }
 }

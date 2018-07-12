@@ -233,6 +233,29 @@ public class CourseDaoImpl implements CourseDao {
     }
 
     @Override
+    public List<Course> getByName(String courseName) {
+        Connection conn = util.getConnection();
+        String sql = "SELECT * FROM course WHERE coursename LIKE ?";
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        List<Course> courseList = new ArrayList<>();
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, "%" + courseName + "%");
+            rs =  pst.executeQuery();
+            while (rs.next()) {
+                courseList.add(buildCourse(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            util.close(rs, pst, conn);
+        }
+
+        return courseList;
+    }
+
+    @Override
     public List<Course> getFamousCourses() {
         Connection conn = util.getConnection();
         String sql = "SELECT * FROM course ORDER BY studentnum DESC ";

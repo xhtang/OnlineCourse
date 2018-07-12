@@ -38,4 +38,6 @@ public interface CourseService {
     List<Course> getFreshCourses();
 
     List<Course> getAll();
+
+    List<Course> getByName(String coursename);
 }

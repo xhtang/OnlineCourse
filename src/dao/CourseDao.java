@@ -29,6 +29,8 @@ public interface CourseDao {
 
     List<Course> getByStudent(int studentId);
 
+    List<Course> getByName(String courseName);
+
     List<Course> getFamousCourses();
 
     List<Course> getFreshCourses();
