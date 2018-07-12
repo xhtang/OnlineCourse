@@ -138,4 +138,12 @@
     </servlet-mapping>
 
 
+    <servlet>
+        <servlet-name>AddVideoServlet</servlet-name>
+        <servlet-class>servlet.AddVideoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddVideoServlet</servlet-name>
+        <url-pattern>/addVideo</url-pattern>
+    </servlet-mapping>
 </web-app>
