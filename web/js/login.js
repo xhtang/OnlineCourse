@@ -12,7 +12,7 @@ $(document).ready(function () {
 
                 if (data.existed === "TRUE") {
                     if (data.password === "TRUE") {
-                        window.location.href = "http://localhost:8080/online-course/"; //回到首页
+                        window.location.href = "../online-course"; //回到首页
                     }
                     else {
                         alert("用户名和密码错误！")

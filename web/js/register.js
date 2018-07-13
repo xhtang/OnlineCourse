@@ -19,7 +19,7 @@ $(document).ready(function () {
                 function (data) {
                     data = JSON.parse(data); // get js object
                     if (data.result === "OK") {
-                        window.location.href = "http://localhost:8080/online-course/"; //回到首页
+                        window.location.href = "../online-course"; //回到首页
                     }
                     else {
                         alert("存在同名的用户");
