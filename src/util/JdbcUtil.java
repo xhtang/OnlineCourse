@@ -4,10 +4,10 @@ import java.sql.*;
 
 public class JdbcUtil {
 
-    private final static String URL = "jdbc:mysql://127.0.0.1:3306/onlinecourse";
-//    private final static String URL = "jdbc:mysql://10.131.229.156:3306/onlinecourse";
+    //    private final static String URL = "jdbc:mysql://127.0.0.1:3306/onlinecourse";
+    private final static String URL = "jdbc:mysql://10.131.229.156:3306/onlinecourse";
     private final static String USER = "root";
-    private final static String PASSWORD = "123456";
+    private final static String PASSWORD = "123654";
 
     public static void main(String args[]) {
         new JdbcUtil();
