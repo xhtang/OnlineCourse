@@ -22,6 +22,7 @@
 <jsp:useBean id="courseDetail" type="entity.CourseDetails" scope="session"/>
 <jsp:useBean id="point" type="entity.Point" scope="request"/>
 <jsp:useBean id="videoList" type="java.util.List<entity.Video>" scope="request"/>
+<jsp:useBean id="userState" type="java.lang.String" scope="request"/>
 
 <div class="container" style="padding: 10px;">
 
@@ -34,17 +35,18 @@
                 </ol>
             </nav>
 
-            <form method="post" action="addVideo" enctype="multipart/form-data">
-                <div class="form-group">
-                    <button id="video_chooser" type="button" class="btn btn-primary">选择视频</button>
+            <c:if test="${userState.equals(\"MyTeachCourse\")}">
+                <form method="post" action="addVideo" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <button id="video_chooser" type="button" class="btn btn-primary">选择视频</button>
 
-                    <button id="upload" type="submit" class="btn btn-primary">上传</button>
+                        <button id="upload" type="submit" class="btn btn-primary">上传</button>
 
-                    <input name="pointId" value="${point.id}" hidden>
-                    <input id="uploade_video" accept="video/mp4" type="file" name="video" hidden/>
-                </div>
-            </form>
-
+                        <input name="pointId" value="${point.id}" hidden>
+                        <input id="uploade_video" accept="video/mp4" type="file" name="video" hidden/>
+                    </div>
+                </form>
+            </c:if>
             <c:forEach items="${videoList}" var="video">
                 <video style="width: 100%; margin-top: 20px;" src="res/video/${video.path}" controls="controls">
                     您的浏览器不支持 video 标签。
