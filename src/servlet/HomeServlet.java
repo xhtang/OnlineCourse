@@ -21,22 +21,13 @@ public class HomeServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        User user = (User) request.getSession().getAttribute("user");
-//        if (user == null) {
-//            request.setAttribute("user", null);
-//        }
-//        request.getSession().setAttribute("user", null);
-
         List<Course> heat = courseService.getFamousCourses();
         List<Course> fresh = courseService.getFreshCourses();
 
         if (heat.size() >= 3)
             heat = heat.subList(0,3);
         if (fresh.size() >= 3)
-            fresh = fresh.subList(0, 3);
-
-//        List<Course> heat = courseService.getFamousCourses().subList(0, 3);
-//        List<Course> fresh = courseService.getFreshCourses().subList(0, 3);
+            fresh = fresh.subList(0,3);
 
         request.setAttribute("heat", heat);
         request.setAttribute("latest", fresh);
