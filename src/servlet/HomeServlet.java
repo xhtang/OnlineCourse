@@ -3,7 +3,9 @@ package servlet;
 import entity.Course;
 import entity.User;
 import service.CourseService;
+import service.UserService;
 import service.impl.CourseServiceImpl;
+import service.impl.UserServiceImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,6 +18,7 @@ import java.util.List;
 
 public class HomeServlet extends HttpServlet {
     private CourseService courseService = new CourseServiceImpl();
+    private UserService userService = new UserServiceImpl();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
@@ -31,6 +34,8 @@ public class HomeServlet extends HttpServlet {
 
         request.setAttribute("heat", heat);
         request.setAttribute("latest", fresh);
+
+        request.setAttribute("testUser", userService.exist("hn"));
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
